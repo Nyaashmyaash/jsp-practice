@@ -37,5 +37,9 @@ public class SignUpServlet extends HttpServlet {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         LocalDate birthDate = LocalDate.parse(request.getParameter("birthDate"));
+
+        User user = new User(name, password,birthDate);
+
+        usersRepository.save(user);
     }
 }

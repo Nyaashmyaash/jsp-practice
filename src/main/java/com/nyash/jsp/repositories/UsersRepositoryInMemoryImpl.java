@@ -24,4 +24,10 @@ public class UsersRepositoryInMemoryImpl implements UsersRepository{
     public List<User> findAll() {
         return this.users;
     }
+    public List<User> save(User user) {
+        users.add(user);
+        return this.users;
+    }
+
+
 }

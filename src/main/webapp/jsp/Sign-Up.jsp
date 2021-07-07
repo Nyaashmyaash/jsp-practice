@@ -7,6 +7,17 @@
     <title>Title</title>
 </head>
 <body>
+<form>
+    <label for="name">User name
+        <input type="text" id="name" name="name">
+    </label>
+    <label for="birthDate">Birth date
+        <input type="text" id="birthDate" name="birthDate">
+    </label>
+    <label for="password">Password
+        <input type="password" id="password" name="password">
+    </label>
+</form>
 <table>
     <tr>
         <th>User name</th>
