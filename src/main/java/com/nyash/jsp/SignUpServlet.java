@@ -29,4 +29,5 @@ public class SignUpServlet extends HttpServlet {
         request.setAttribute("usersFromServer", users);
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/jsp/Sign-Up.jsp");
         dispatcher.forward(request, response);
+    }
 }
