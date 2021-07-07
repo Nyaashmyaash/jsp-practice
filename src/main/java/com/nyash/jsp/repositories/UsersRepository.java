@@ -22,6 +22,6 @@ public class UsersRepository {
     }
 
     List<User> findAll() {
-
+        return this.users;
     }
 }
