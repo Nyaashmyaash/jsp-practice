@@ -1,5 +1,6 @@
 package com.nyash.jsp;
 
+import com.nyash.jsp.models.User;
 import com.nyash.jsp.repositories.UsersRepository;
 import com.nyash.jsp.repositories.UsersRepositoryInMemoryImpl;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet("/signUp")
 public class SignUpServlet extends HttpServlet {
@@ -23,7 +25,7 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter writer = response.getWriter();
-        writer.write("Sign-Up");
+        List<User> users = usersRepository.findAll();
+
     }
 }
