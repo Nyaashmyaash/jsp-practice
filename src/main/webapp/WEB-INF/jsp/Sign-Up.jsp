@@ -14,9 +14,15 @@
         <th>User name</th>
         <th>User birth date</th>
     </tr>
-    <%
-        for (User user : users)
+    <% for (User user : users) {
     %>
+    <tr>
+        <td><%=user.getName()%>
+        </td>
+        <td><%=user.getBirthDate()%>
+        </td>
+    </tr>
+    <%}%>
 </table>
 </body>
 </html>
