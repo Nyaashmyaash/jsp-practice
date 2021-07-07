@@ -41,5 +41,7 @@ public class SignUpServlet extends HttpServlet {
         User user = new User(name, password,birthDate);
 
         usersRepository.save(user);
+
+        doGet(request,response);
     }
 }
