@@ -13,6 +13,6 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
-        writer.write("srvlt");
+        writer.write("Sign-Up");
     }
 }
