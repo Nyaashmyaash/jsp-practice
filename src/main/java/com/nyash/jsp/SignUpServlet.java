@@ -4,6 +4,7 @@ import com.nyash.jsp.models.User;
 import com.nyash.jsp.repositories.UsersRepository;
 import com.nyash.jsp.repositories.UsersRepositoryInMemoryImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +27,7 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> users = usersRepository.findAll();
-
-    }
+        request.setAttribute("usersFromServer", users);
+        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/jsp/Sign-Up.jsp");
+        dispatcher.forward(request, response);
 }
