@@ -11,9 +11,9 @@
     <title></title>
 </head>
 <body>
-<span style="color: chartreuse">Hello</span>
+<span style="color: ${cookie.color.value}">Hello</span>
 
-<form method="post">
+<form method="post" action="/home">
     <label for="color">
         <select name="color" id="color">
             <option value="red">Red</option>
