@@ -16,5 +16,14 @@ public class UsersRepositoryInMemoryImpl implements UsersRepository{
         FakeStorage.storage().users().add(user);
     }
 
-
+    @Override
+    public boolean isExist(String name, String password) {
+        for (User user : FakeStorage.storage().users()) {
+            if (user.getName().equals(name) &&
+            user.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
