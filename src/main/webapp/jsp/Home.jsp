@@ -12,5 +12,16 @@
 </head>
 <body>
 <span style="color: chartreuse">Hello</span>
+
+<form method="post">
+    <label for="color">
+        <select name="color" id="color">
+            <option value="red">Red</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+        </select>
+    </label>
+    <input type="submit" value="Color send">
+</form>
 </body>
 </html>
