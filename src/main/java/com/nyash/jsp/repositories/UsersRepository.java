@@ -8,5 +8,5 @@ public interface UsersRepository {
 
     List<User> findAll();
 
-    List<User> save(User user);
+    void save(User user);
 }

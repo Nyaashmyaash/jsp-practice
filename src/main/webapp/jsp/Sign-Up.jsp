@@ -5,31 +5,39 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form method="post" action="/signUp">
-    <label for="name">User name
-        <input type="text" id="name" name="name">
-    </label>
-    <label for="birthDate">Birth date
-        <input type="text" id="birthDate" name="birthDate">
-    </label>
-    <label for="password">Password
-        <input type="password" id="password" name="password">
-    </label>
-    <input type="submit" value="Sign-Up">
-</form>
-<table>
-    <tr>
-        <th>User name</th>
-        <th>User birth date</th>
-    </tr>
-    <c:forEach items="${usersFromServer}" var="user">
+<div class="form-style-2">
+    <div class="form-style-2-heading">
+        Please sign up!
+    </div>
+    <form method="post" action="/signUp">
+        <label for="name">User name
+            <input class="input-field" type="text" id="name" name="name">
+        </label>
+        <label for="birthDate">Birth date
+            <input class="input-field" type="text" id="birthDate" name="birthDate">
+        </label>
+        <label for="password">Password
+            <input class="input-field" type="password" id="password" name="password">
+        </label>
+        <input type="submit" value="Sign-Up">
+    </form>
+</div>
+<div class="form-style-2">
+    <table>
         <tr>
-            <td>${user.name}</td>
-            <td>${user.birthDate}</td>
+            <th>User name</th>
+            <th>User birth date</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items="${usersFromServer}" var="user">
+            <tr>
+                <td>${user.name}</td>
+                <td>${user.birthDate}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>
