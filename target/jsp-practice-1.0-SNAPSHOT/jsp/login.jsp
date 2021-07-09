@@ -8,7 +8,7 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form class="form-style-7" method="post" action="/signUp">
+    <form class="form-style-7" method="post" action="/login">
         <label for="name">User name
             <input class="input-field" type="text" id="name" name="name">
         </label>
@@ -20,19 +20,5 @@
         </label>
         <input type="submit" value="Sign-Up">
     </form>
-<div class="form-style-7">
-    <table>
-        <tr>
-            <th>User name</th>
-            <th>User birth date</th>
-        </tr>
-        <c:forEach items="${usersFromServer}" var="user">
-            <tr>
-                <td>${user.name}</td>
-                <td>${user.birthDate}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
 </body>
 </html>

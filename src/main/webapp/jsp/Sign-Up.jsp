@@ -8,7 +8,6 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="form-style-7">
     <form class="form-style-7" method="post" action="/signUp">
         <label for="name">User name
             <input class="input-field" type="text" id="name" name="name">
@@ -21,7 +20,6 @@
         </label>
         <input type="submit" value="Sign-Up">
     </form>
-</div>
 <div class="form-style-7">
     <table>
         <tr>
