@@ -6,14 +6,11 @@ public class User {
 
     private String name;
 
-    private String password;
+    private String lastName;
 
-    private LocalDate birthDate;
-
-    public User(String name, String password, LocalDate birthDate) {
+    public User(String name, String lastName) {
         this.name = name;
-        this.password = password;
-        this.birthDate = birthDate;
+        this.lastName = lastName;
     }
 
     public String getName() {
@@ -24,19 +21,11 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

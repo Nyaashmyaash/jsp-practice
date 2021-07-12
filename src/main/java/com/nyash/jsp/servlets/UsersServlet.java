@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 @WebServlet("/users")
@@ -20,7 +22,13 @@ public class UsersServlet extends HttpServlet {
         Properties properties = new Properties();
         try {
             properties.load(new FileInputStream(getServletContext().getRealPath("/WEB-INF/classes/db.properties")));
-        } catch (IOException e) {
+            String dbUrl = properties.getProperty("db.url");
+            String dbUserName = properties.getProperty("db.username");
+            String dbPassword = properties.getProperty("db.password");
+
+            connection = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
+
+        } catch (IOException | SQLException e) {
             throw new IllegalStateException(e);
         }
     }

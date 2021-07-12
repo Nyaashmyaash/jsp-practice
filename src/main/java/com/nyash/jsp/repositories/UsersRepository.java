@@ -10,5 +10,5 @@ public interface UsersRepository {
 
     void save(User user);
 
-    boolean isExist(String name, String password);
+//    boolean isExist(String name, String password);
 }
