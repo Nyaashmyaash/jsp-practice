@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 @WebServlet("/users")
@@ -28,7 +29,7 @@ public class UsersServlet extends HttpServlet {
             String driverClassName = properties.getProperty("db.driverClassName");
 
             Class.forName(driverClassName);
-            connection = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
+            connection = DriverManager.getConnection(dbUrl, dbUserName, dbPassword);
 
         } catch (IOException | SQLException | ClassNotFoundException e) {
             throw new IllegalStateException(e);
@@ -37,6 +38,15 @@ public class UsersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/jsp/addUser.jsp").forward(req,resp);
+        req.getServletContext().getRequestDispatcher("/jsp/addUser.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            Statement statement = connection.createStatement();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 }
