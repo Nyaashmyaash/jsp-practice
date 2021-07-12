@@ -19,7 +19,7 @@ public class UsersServlet extends HttpServlet {
     public void init() throws ServletException {
         Properties properties = new Properties();
         try {
-            properties.load(new FileInputStream(getServletContext().getRealPath("db.properties")));
+            properties.load(new FileInputStream(getServletContext().getRealPath("/WEB-INF/classes/db.properties")));
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
