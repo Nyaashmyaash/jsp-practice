@@ -1,4 +1,4 @@
-package com.nyash.jsp;
+package com.nyash.jsp.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

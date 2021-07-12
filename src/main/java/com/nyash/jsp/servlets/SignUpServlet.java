@@ -1,4 +1,4 @@
-package com.nyash.jsp;
+package com.nyash.jsp.servlets;
 
 import com.nyash.jsp.models.User;
 import com.nyash.jsp.repositories.UsersRepository;
