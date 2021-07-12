@@ -12,16 +12,13 @@
     <h3> Please add user </h3>
 </div>
     <form class="form-style-7" method="post" action="/login">
-        <label for="name">User name
-            <input class="input-field" type="text" id="name" name="name">
+        <label for="first-name">First name
+            <input class="input-field" type="text" id="first-name" name="first-name">
         </label>
-        <label for="birthDate">Birth date
-            <input class="input-field" type="text" id="birthDate" name="birthDate">
+        <label for="last-name">Birth date
+            <input class="input-field" type="text" id="last-name" name="last-name">
         </label>
-        <label for="password">Password
-            <input class="input-field" type="password" id="password" name="password">
-        </label>
-        <input type="submit" value="Sign-Up">
+        <input type="submit" value="Add user">
     </form>
 </body>
 </html>
