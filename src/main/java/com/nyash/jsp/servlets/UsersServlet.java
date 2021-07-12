@@ -5,8 +5,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Properties;
 
 @WebServlet("/users")
 public class UsersServlet extends HttpServlet {
@@ -15,7 +17,12 @@ public class UsersServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        super.init();
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream(getServletContext().getRealPath("db.properties")));
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     @Override
