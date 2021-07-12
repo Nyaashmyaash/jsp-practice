@@ -25,10 +25,12 @@ public class UsersServlet extends HttpServlet {
             String dbUrl = properties.getProperty("db.url");
             String dbUserName = properties.getProperty("db.username");
             String dbPassword = properties.getProperty("db.password");
+            String driverClassName = properties.getProperty("db.driverClassName");
 
+            Class.forName(driverClassName);
             connection = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
 
-        } catch (IOException | SQLException e) {
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             throw new IllegalStateException(e);
         }
     }
