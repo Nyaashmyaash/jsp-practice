@@ -15,7 +15,7 @@
         <label for="first-name">First name
             <input class="input-field" type="text" id="first-name" name="first-name">
         </label>
-        <label for="last-name">Birth date
+        <label for="last-name">Last name
             <input class="input-field" type="text" id="last-name" name="last-name">
         </label>
         <input type="submit" value="Add user">
