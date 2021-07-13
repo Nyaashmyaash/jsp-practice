@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 @WebServlet("/users")
@@ -47,6 +48,15 @@ public class UsersServletWithDao extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Optional<User> user = userDao.find(1);
+
+
+
+
+
+
+
         List<User> users = userDao.findAll();
 
         if (req.getParameter("firstName") != null){
