@@ -1,13 +1,11 @@
 package com.nyash.jsp.dao;
 
+import com.nyash.jsp.models.Car;
 import com.nyash.jsp.models.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class UserDaoJdbcTemplateImpl implements UserDao {
 
@@ -36,6 +34,19 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
 
     private RowMapper<User> userRowMapper = (rs, rowNum) -> {
         Integer id = rs.getInt("id");
+
+        if (!userMap.containsKey(id)){
+            String firstName = rs.getString("first_name");
+            String lastName = rs.getString("last_name");
+            User user = new User(id, firstName, lastName, new ArrayList<>());
+            userMap.put(id, user);
+        }
+
+        Car car = new Car(rs.getInt("car_id"), rs.getString("model"), userMap.get(id));
+
+        userMap.get(id).getCars().add(car);
+
+        return userMap.get(id);
 
     };
 
