@@ -11,10 +11,10 @@ import java.util.Optional;
 public class UserDaoJdbcImpl implements UserDao {
 
     private final String SQL_SELECT_ALL =
-            "SELECT * FROM fix_user_db.public.user";
+            "SELECT * FROM fix_user_db.public.users";
 
     private final String SQL_SELECT_BY_ID =
-            "SELECT * FROM fix_user_db.public.user WHERE id = ?";
+            "SELECT * FROM fix_user_db.public.users WHERE id = ?";
 
     private Connection connection;
 

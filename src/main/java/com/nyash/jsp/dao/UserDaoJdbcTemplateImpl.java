@@ -4,7 +4,9 @@ import com.nyash.jsp.models.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import javax.sql.DataSource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class UserDaoJdbcTemplateImpl implements UserDao {
@@ -12,28 +14,29 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
     private JdbcTemplate template;
 
     private final String SQL_SELECT_ALL =
-            "SELECT * FROM fix_user_db.public.user";
+            "SELECT * FROM users";
 
     private final String SQL_SELECT_BY_ID =
-            "SELECT * FROM fix_user_db.public.user WHERE id = ?";
+            "SELECT * FROM users WHERE id = ?";
 
     private final String SQL_SELECT_ALL_BY_FIRSTNAME =
-            "SELECT * FROM fix_user_db.public.user WHERE first_name = ?";
+            "SELECT * FROM users WHERE first_name = ?";
 
     private final String SQL_SELECT_USER_WITH_CARS =
-            "SELECT * FROM fix_user_db.public.user LEFT JOIN fix_user_db.public.car " +
-                    "ON fix_user_db.public.user.id = fix_user_db.public.car.owner_id" +
-                    "WHERE fix_user_db.public.user.id = ?";
+            "SELECT users.*, cars.id as car_id, cars.model" +
+                    "FROM users " +
+                    "LEFT JOIN cars ON users.id = cars.owner_id " +
+                    "WHERE users.id = ?";
+
+    private Map<Integer, User> userMap = new HashMap<>();
 
     public UserDaoJdbcTemplateImpl(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
 
     private RowMapper<User> userRowMapper = (rs, rowNum) -> {
-        return new User(
-                rs.getInt("id"),
-                rs.getString("first_name"),
-                rs.getString("last_name"));
+        Integer id = rs.getInt("id");
+
     };
 
     @Override

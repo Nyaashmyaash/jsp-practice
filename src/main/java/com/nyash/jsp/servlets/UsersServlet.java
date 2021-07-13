@@ -1,7 +1,6 @@
 package com.nyash.jsp.servlets;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,7 +51,7 @@ public class UsersServlet extends HttpServlet {
 //            statement.execute(sqlInsert);
 
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO " +
-                    "fix_user_db.public.user(first_name, last_name) VALUES (?, ?)");
+                    "fix_user_db.public.users(first_name, last_name) VALUES (?, ?)");
             preparedStatement.setString(1, firstName);
             preparedStatement.setString(2, lastName);
             preparedStatement.execute();
