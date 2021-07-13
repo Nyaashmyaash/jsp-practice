@@ -43,8 +43,17 @@ public class UsersServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String firstName = req.getParameter("first-name");
+        String lastName = req.getParameter("last-name");
+
         try {
+
             Statement statement = connection.createStatement();
+            String sqlInsert = "INSERT INTO fix_user_db.public.user (first_name, last_name) " +
+                    "VALUES ('" + firstName + "', '" + lastName + "');";
+            System.out.println(sqlInsert);
+            statement.execute(sqlInsert);
+
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
