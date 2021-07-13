@@ -2,6 +2,7 @@ package com.nyash.jsp.servlets;
 
 import com.nyash.jsp.dao.UserDao;
 import com.nyash.jsp.dao.UserDaoJdbcImpl;
+import com.nyash.jsp.dao.UserDaoJdbcTemplateImpl;
 import com.nyash.jsp.models.User;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -38,7 +39,7 @@ public class UsersServletWithDao extends HttpServlet {
             dataSource.setUrl(dbUrl);
             dataSource.setDriverClassName(driverClassName);
 
-            userDao = new UserDaoJdbcImpl(dataSource);
+            userDao = new UserDaoJdbcTemplateImpl(dataSource);
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }

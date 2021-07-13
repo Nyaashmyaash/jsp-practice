@@ -10,7 +10,7 @@
 <div class="form-style-7">
     <h3> Please add user </h3>
 </div>
-    <form class="form-style-7" method="post" action="/users">
+    <form class="form-style-7" method="post" action="/addUser">
         <label for="first-name">First name
             <input class="input-field" type="text" id="first-name" name="first-name">
         </label>
