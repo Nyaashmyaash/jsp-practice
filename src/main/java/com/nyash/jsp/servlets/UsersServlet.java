@@ -50,6 +50,7 @@ public class UsersServlet extends HttpServlet {
 //                    "VALUES ('" + firstName + "', '" + lastName + "');";
 //            System.out.println(sqlInsert);
 //            statement.execute(sqlInsert);
+
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO " +
                     "fix_user_db.public.user(first_name, last_name) VALUES (?, ?)");
             preparedStatement.setString(1, firstName);
