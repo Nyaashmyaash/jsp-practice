@@ -20,6 +20,11 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
     private final String SQL_SELECT_ALL_BY_FIRSTNAME =
             "SELECT * FROM fix_user_db.public.user WHERE first_name = ?";
 
+    private final String SQL_SELECT_USER_WITH_CARS =
+            "SELECT * FROM fix_user_db.public.user LEFT JOIN fix_user_db.public.car " +
+                    "ON fix_user_db.public.user.id = fix_user_db.public.car.owner_id" +
+                    "WHERE fix_user_db.public.user.id = ?";
+
     public UserDaoJdbcTemplateImpl(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
@@ -59,5 +64,8 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
     @Override
     public List<User> findAllByFirstName(String firstName) {
         return template.query(SQL_SELECT_ALL_BY_FIRSTNAME, userRowMapper, firstName);
+
     }
+
+
 }
