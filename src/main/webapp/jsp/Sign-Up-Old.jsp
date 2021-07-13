@@ -17,7 +17,7 @@
     <% for (User user : users) {
     %>
     <tr>
-        <td><%=user.getName()%>
+        <td><%=user.getFirstName()%>
         </td>
         <td><%=user.getBirthDate()%>
         </td>

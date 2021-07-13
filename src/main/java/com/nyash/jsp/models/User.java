@@ -1,23 +1,21 @@
 package com.nyash.jsp.models;
 
-import java.time.LocalDate;
-
 public class User {
 
     private int id;
 
-    private String name;
+    private String firstName;
 
     private String lastName;
 
-    public User(int id, String name, String lastName) {
+    public User(int id, String firstName, String lastName) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public User(String name, String lastName) {
-        this.name = name;
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 
@@ -32,12 +30,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
