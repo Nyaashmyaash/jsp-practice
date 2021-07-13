@@ -4,6 +4,7 @@ import com.nyash.jsp.models.Car;
 import com.nyash.jsp.models.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+
 import javax.sql.DataSource;
 import java.util.*;
 
@@ -35,7 +36,7 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
     private RowMapper<User> userRowMapper = (rs, rowNum) -> {
         Integer id = rs.getInt("id");
 
-        if (!userMap.containsKey(id)){
+        if (!userMap.containsKey(id)) {
             String firstName = rs.getString("first_name");
             String lastName = rs.getString("last_name");
             User user = new User(id, firstName, lastName, new ArrayList<>());
@@ -52,7 +53,11 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
 
     @Override
     public Optional<User> find(int id) {
-        return Optional.empty();
+        if (userMap.containsKey(id)) {
+            return Optional.of(userMap.get(id));
+        } else {
+            return Optional.empty();
+        }
     }
 
     @Override
