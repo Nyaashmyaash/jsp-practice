@@ -10,6 +10,12 @@ public class User {
 
     private String lastName;
 
+    public User(int id, String name, String lastName) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+    }
+
     public User(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
