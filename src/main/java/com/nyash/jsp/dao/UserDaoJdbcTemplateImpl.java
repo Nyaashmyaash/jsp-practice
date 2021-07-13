@@ -3,10 +3,7 @@ package com.nyash.jsp.dao;
 import com.nyash.jsp.models.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +16,9 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
 
     private final String SQL_SELECT_BY_ID =
             "SELECT * FROM fix_user_db.public.user WHERE id = ?";
+
+    private final String SQL_SELECT_ALL_BY_FIRSTNAME =
+            "SELECT * FROM fix_user_db.public.user WHERE first_name = ?";
 
     public UserDaoJdbcTemplateImpl(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
@@ -58,6 +58,6 @@ public class UserDaoJdbcTemplateImpl implements UserDao {
 
     @Override
     public List<User> findAllByFirstName(String firstName) {
-        return null;
+        return template.query(SQL_SELECT_ALL_BY_FIRSTNAME, userRowMapper, firstName);
     }
 }
