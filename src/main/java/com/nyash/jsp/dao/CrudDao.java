@@ -1,10 +1,11 @@
 package com.nyash.jsp.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CrudDao<T> {
 
-    T find(int id);
+    Optional<T> find(int id);
 
     void save(T model);
 

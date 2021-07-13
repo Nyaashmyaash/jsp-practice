@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class UserDaoJdbcImpl implements UserDao {
 
@@ -26,7 +27,7 @@ public class UserDaoJdbcImpl implements UserDao {
     }
 
     @Override
-    public User find(int id) {
+    public Optional<User> find(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement(SQL_SELECT_BY_ID);
             statement.setInt(1, id);
@@ -35,10 +36,10 @@ public class UserDaoJdbcImpl implements UserDao {
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
 
-                return new User(id, firstName, lastName);
+                return Optional.of(new User(id, firstName, lastName));
 
             }
-            return null;
+            return Optional.empty();
         } catch (SQLException e) {
             throw new IllegalStateException(e);
         }
