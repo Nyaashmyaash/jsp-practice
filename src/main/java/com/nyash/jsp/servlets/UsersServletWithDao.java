@@ -48,6 +48,13 @@ public class UsersServletWithDao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = userDao.findAll();
+
+        if (req.getParameter("firstName") != null){
+            String firstMane = req.getParameter("firstName");
+            users = userDao.findAllByFirstName(firstMane);
+        } else {
+            users = userDao.findAll();
+        }
         req.setAttribute("usersFromServer", users);
         req.getServletContext().getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
     }
