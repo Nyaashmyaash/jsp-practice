@@ -1,7 +1,11 @@
 package com.nyash.jsp;
 
+import com.nyash.jsp.models.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
 
 public class main {
     public static void main(String[] args) {
@@ -13,5 +17,9 @@ public class main {
         configuration.setProperty("hibernate.connection.dialect", "org.hibernate.dialect.PostgreSQL95Dialect");
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        User user = session.createQuery("from User user where user.id = 1", User.class).getSingleResult();
     }
 }
