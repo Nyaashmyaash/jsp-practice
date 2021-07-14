@@ -1,5 +1,6 @@
 package com.nyash.jsp;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class main {
@@ -9,6 +10,8 @@ public class main {
         configuration.setProperty("hibernate.connection.username", "postgres");
         configuration.setProperty("hibernate.connection.password", "test");
         configuration.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
-        configuration.setProperty("hibernate.connection.dialect", "org.hibernate.dialect.PostgreSQL91Dialect");
+        configuration.setProperty("hibernate.connection.dialect", "org.hibernate.dialect.PostgreSQL95Dialect");
+
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
     }
 }
